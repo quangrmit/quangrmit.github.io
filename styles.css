@@ -1,0 +1,29 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Roboto, sans-serif;
+    font-weight: 300;
+}
+.page-title {
+    text-align: center;
+}
+.nav-bar {
+    border: 2px solid chartreuse;
+}
+.nav-list {
+    display: flex;
+    flex-wrap: wrap;
+    /* flex-wrap: nowrap; */
+    justify-content: space-evenly;
+    gap: 3vw;
+    list-style-type: none;
+    font-size: 20px;
+}
+.nav-list li {
+    border: 2px solid coral;
+    /* flex: 1; */
+    text-align: center;
+}
