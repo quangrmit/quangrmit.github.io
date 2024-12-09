@@ -1,4 +1,5 @@
-function submitPrompt() {
+async function submitPrompt() {
+    const URL = "https://gen-ai-2024.onrender.com/mediastack"
     const promptInput = document.getElementById('promptInput');
     const userMessage = promptInput.value.trim();
     const responseSection = document.getElementById('responseSection');
@@ -14,19 +15,17 @@ function submitPrompt() {
 
     promptInput.value = '';
 
-    const response = {
-        citation: [
-            "https://www.example.com/citation1",
-            "https://www.example.com/citation2",
-            "https://www.example.com/citation3"
-        ],
-        imageUrl: "https://via.placeholder.com/600x300?text=Image+Placeholder",
-        keywords: ["intel"],
-        meme: "https://via.placeholder.com/300x200?text=Meme+Placeholder",
-        query: "Tell me about latest intel",
-        summary: "Placeholder summary text.",
-        videoUrl: "https://www.w3schools.com/html/mov_bbb.mp4"
-    };
+    const data = await fetch(URL, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json' // Important for Flask to recognize JSON
+        },
+        body: JSON.stringify({ query: userMessage }) 
+    })
+
+    
+    const response = await data.json();
+
 
     const summaryBlock = document.createElement('div');
     summaryBlock.classList.add('response-block');
